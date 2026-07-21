@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Claim Status Portal</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+
+        <h1>Stop checking manually.<br><span>Automate it.</span></h1>
+
+        <p class="subtitle">An Autonomous claim verification engine. Convert your manual tracking<br>into instant,
+            zero-touch status updates using Uipath.</p>
+
+        <form id="claimForm" class="form-container">
+            <div class="input-row">
+                <input type="text" id="memberId" name="memberId" required placeholder="Member ID (e.g. M1001)">
+            </div>
+            <div class="input-row">
+                <input type="text" id="patientName" name="patientName" required
+                    placeholder="Patient Name (e.g. Karthik)">
+            </div>
+            <div class="input-row">
+                <input type="text" id="claimNumber" name="claimNumber" required
+                    placeholder="Claim Number (e.g. CLM7841)">
+            </div>
+
+            <button type="submit" id="submitBtn">Verify Claim — Free</button>
+        </form>
+
+        <div id="resultContainer" class="result-container hidden">
+            <div class="status-indicator">
+                <span id="statusValue" class="status-value pending">Pending</span>
+            </div>
+            <p id="statusMessage" class="status-message">Your claim is currently being processed.</p>
+            <button type="button" id="resetBtn" class="reset-link">Check Another Claim</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

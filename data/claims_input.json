@@ -1,0 +1,62 @@
+[
+  {
+    "memberId": "M1001",
+    "patientName": "Karthik Subramaniam",
+    "claimNumber": "CLM7841",
+    "status": "M1001"
+  },
+  {
+    "memberId": "M1002",
+    "patientName": "Lakshmi Narayanan",
+    "claimNumber": "CLM7842",
+    "status": "M1002"
+  },
+  {
+    "memberId": "M1003",
+    "patientName": "Muthu Vel",
+    "claimNumber": "CLM7843",
+    "status": "M1003"
+  },
+  {
+    "memberId": "M1004",
+    "patientName": "Priya Dharshini",
+    "claimNumber": "CLM7844",
+    "status": "M1004"
+  },
+  {
+    "memberId": "M1005",
+    "patientName": "Selvam Raj",
+    "claimNumber": "CLM7845",
+    "status": "M1005"
+  },
+  {
+    "memberId": "M1006",
+    "patientName": "Kavitha Rajendran",
+    "claimNumber": "CLM7846",
+    "status": "M1006"
+  },
+  {
+    "memberId": "M1007",
+    "patientName": "Arun Kumar",
+    "claimNumber": "CLM7847",
+    "status": "M1007"
+  },
+  {
+    "memberId": "M1008",
+    "patientName": "Meenakshi Sundaram",
+    "claimNumber": "CLM7848",
+    "status": "M1008"
+  },
+  {
+    "memberId": "M1009",
+    "patientName": "Vignesh Murugan",
+    "claimNumber": "CLM7849",
+    "status": "M1009"
+  },
+  {
+    "memberId": "M1010",
+    "patientName": "Deepa Chandrasekaran",
+    "claimNumber": "CLM7850",
+    "status": "M1010"
+  }
+]

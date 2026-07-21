@@ -1,0 +1,13 @@
+# Ignore Markdown Documentation
+*.md
+
+# UiPath Ignore Files
+.local/
+.settings/
+.tmh/
+.project
+.entities/
+.objects/
+.screenshots/
+*.cache
+*.nupkg
