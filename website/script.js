@@ -6,34 +6,19 @@ document.addEventListener('DOMContentLoaded', () => {
     const submitBtn = document.getElementById('submitBtn');
     const resetBtn = document.getElementById('resetBtn');
 
-    // Fake status generation - deterministic based on claim number 
-    function generateStatus(claimNumber) {
+    // Generate deterministic raw medical billing codes and explanations
+    function generateRawEOB(claimNumber) {
         const lastChar = claimNumber.trim().slice(-1);
         const num = parseInt(lastChar, 10);
 
-        if (isNaN(num)) {
-            return 'Pending'; 
+        if (isNaN(num) || num % 3 === 1) {
+            return 'EDI-277: Claim received. Status: IN-REVIEW. Payer Remarks: Pending manual adjudication by medical director. Code: MA-89. Encounter: Office Visit (CPT 99214). Billed Amount: ₹4,500.';
         }
 
         if (num % 3 === 0) {
-            return 'Approved';
-        } else if (num % 3 === 1) {
-            return 'Pending';
+            return 'EDI-835: Remittance Advice. Encounter: MRI (CPT 70551). Billed Amount: ₹15,000. Payer Allowed: ₹12,500. Patient Responsibility (PR-1): ₹2,500. Claim Processed and Cleared for EFT.';
         } else {
-            return 'Rejected';
-        }
-    }
-
-    function getStatusMessage(status) {
-        switch(status) {
-            case 'Approved':
-                return 'Your claim has been fully processed and approved for payment.';
-            case 'Pending':
-                return 'Your claim is currently under review by our specialists.';
-            case 'Rejected':
-                return 'Your claim has been denied. Please review your Explanation of Benefits (EOB).';
-            default:
-                return 'Status unknown.';
+            return 'EDI-835: Remittance Advice. Encounter: Knee Surgery (CPT 29881). Billed Amount: ₹45,000. Payer Response: CO-4 (The procedure code is inconsistent with the modifier used). Claim Denied.';
         }
     }
 
@@ -48,12 +33,12 @@ document.addEventListener('DOMContentLoaded', () => {
         resultContainer.classList.add('hidden');
 
         setTimeout(() => {
-            const status = generateStatus(claimNumber);
+            const rawEOB = generateRawEOB(claimNumber);
             
             // Update UI with results
-            statusValue.textContent = status;
-            statusValue.className = 'status-value ' + status.toLowerCase();
-            statusMessage.textContent = getStatusMessage(status);
+            statusValue.textContent = 'RAW EOB DATA:';
+            statusValue.className = 'status-value pending';
+            statusMessage.textContent = rawEOB;
 
             // Show the result box
             resultContainer.classList.remove('hidden');
