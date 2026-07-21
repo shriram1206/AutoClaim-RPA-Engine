@@ -1,5 +1,6 @@
 # Ignore Markdown Documentation
 *.md
+!README.md
 
 # UiPath Ignore Files
 .local/
