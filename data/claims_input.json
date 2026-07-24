@@ -3,60 +3,70 @@
     "memberId": "M1001",
     "patientName": "Karthik Subramaniam",
     "claimNumber": "CLM7841",
-    "status": "M1001"
+    "status": "pending",
+    "summary": "The claim for CPT 99214 is pending manual adjudication by the medical director."
   },
   {
     "memberId": "M1002",
     "patientName": "Lakshmi Narayanan",
     "claimNumber": "CLM7842",
-    "status": "M1002"
+    "status": "denied",
+    "summary": "The claim for knee surgery (CPT 29881) was denied because the procedure code is inconsistent with the modifier used."
   },
   {
     "memberId": "M1003",
     "patientName": "Muthu Vel",
     "claimNumber": "CLM7843",
-    "status": "M1003"
+    "status": "paid",
+    "summary": "The MRI claim was processed and cleared for EFT for the payer's allowed amount of ₹12,500, with ₹2,500 assigned as patient responsibility."
   },
   {
     "memberId": "M1004",
     "patientName": "Priya Dharshini",
     "claimNumber": "CLM7844",
-    "status": "M1004"
+    "status": "pending",
+    "summary": "The claim is pending manual adjudication by the medical director for an office visit (CPT 99214)."
   },
   {
     "memberId": "M1005",
     "patientName": "Selvam Raj",
     "claimNumber": "CLM7845",
-    "status": "M1005"
+    "status": "denied",
+    "summary": "The claim for knee surgery was denied because the procedure code (CPT 29881) was inconsistent with the modifier used."
   },
   {
     "memberId": "M1006",
     "patientName": "Kavitha Rajendran",
     "claimNumber": "CLM7846",
-    "status": "M1006"
+    "status": "paid",
+    "summary": "The MRI claim was processed and cleared for EFT with a payer allowance of ₹12,500, leaving ₹2,500 as patient responsibility."
   },
   {
     "memberId": "M1007",
     "patientName": "Arun Kumar",
     "claimNumber": "CLM7847",
-    "status": "M1007"
+    "status": "pending",
+    "summary": "The claim is in review and pending manual adjudication by the medical director."
   },
   {
     "memberId": "M1008",
     "patientName": "Meenakshi Sundaram",
     "claimNumber": "CLM7848",
-    "status": "M1008"
+    "status": "denied",
+    "summary": "The claim for CPT 29881 for knee surgery was denied because the procedure code was inconsistent with the modifier used."
   },
   {
     "memberId": "M1009",
     "patientName": "Vignesh Murugan",
     "claimNumber": "CLM7849",
-    "status": "M1009"
+    "status": "paid",
+    "summary": "The MRI claim was processed and paid by the payer for ₹12,500 via EFT, with the remaining ₹2,500 assigned to patient responsibility."
   },
   {
     "memberId": "M1010",
     "patientName": "Deepa Chandrasekaran",
     "claimNumber": "CLM7850",
-    "status": "M1010"
+    "status": "paid",
+    "summary": "The MRI claim (CPT 70551) was processed and cleared for EFT, with the payer allowing ₹12,500 and assigning ₹2,500 to patient responsibility."
   }
 ]

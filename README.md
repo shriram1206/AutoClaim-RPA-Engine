@@ -1,42 +1,49 @@
-# AutoClaim RPA Engine
+# AutoClaim RPA Engine 🚀
 
-![Project Status](https://img.shields.io/badge/Status-Completed-success)
-![RPA](https://img.shields.io/badge/Tech-UiPath-blue)
-![Frontend](https://img.shields.io/badge/Tech-HTML%2FCSS%2FJS-orange)
+![UiPath](https://img.shields.io/badge/UiPath-RPA-blue?style=for-the-badge&logo=uipath)
+![Google Gemini](https://img.shields.io/badge/Google-Gemini_2.5_Flash-orange?style=for-the-badge&logo=google)
+![Status](https://img.shields.io/badge/Status-Completed-success?style=for-the-badge)
 
-An end-to-end Robotic Process Automation (RPA) MVP built to automate zero-touch claim status verifications. The project simulates a real-world healthcare/insurance automation pipeline by ingesting a batch of claim data, driving a custom web portal via UI automation, extracting the generated status, and writing the structured data back for downstream processing.
+An advanced, autonomous **Robotic Process Automation (RPA)** pipeline that merges UI interaction with deep **Agentic Generative AI**. This project automates the manual extraction of medical claim Explanation of Benefits (EOB) data and utilizes **Google's Gemini 2.5 Flash LLM** to semantically verify, structure, and adjudicate unstructured text into a highly structured JSON database.
 
-**🌐 Live Proxy Portal:** [AutoClaim Status Portal](https://shriram1206.github.io/AutoClaim-RPA-Engine/)
+## 🌟 The Problem
+Traditional deterministic RPA bots struggle with unstructured or dynamically changing HTML data blocks. Medical portals frequently shift their layouts, causing standard UI scraping tools (like Regex or rigid CSS Selectors) to constantly crash when looking for specific `status` or `summary` text nodes.
+
+## 🛠️ The Solution
+Instead of forcing the UiPath robot to deterministically split and sanitize HTML, the bot acts as an **Agent** that collects all raw data and delegates the complex structuring to an LLM.
+1. **Extraction Pipeline:** UiPath systematically loops through a set of patient profiles in `claims_input.json`. 
+2. **Dynamic UI Automation:** The bot simulates human entry and seamlessly traverses the 'Claim Status Portal' to fetch raw EOB blocks.
+3. **AI Summarization:** The unstructured text is securely fed via HTTP Protocol directly to the `gemini-2.5-flash` API endpoint, bypassing brittle logic.
+4. **Data Aggregation:** The AI returns a perfectly sanitized JSON string containing an adjudicated `status` (paid/denied/pending) and a human-readable 1-sentence `summary`, which is injected back into the master array.
+
+## 🚀 Key Technologies & Concepts
+*   **UiPath Studio:** Core anchor architecture, Flow Control, and HTTP Data transmission.
+*   **Google Gemini 2.5 Flash API:** Semantic parsing and intelligent data isolation.
+*   **Newtonsoft JSON:** Complex multidimensional JToken desalinization and updates.
+*   **HTML/CSS/JS:** Built a functional local frontend to simulate a production-grade external claim API.
+
+## 📁 Repository Structure
+```
+📂 AutoClaim-RPA-Engine/
+ ├── 📄 README.md                        # Project documentation
+ ├── 📄 Claim_Status_RPA_MVP_PRD.md      # Official Project Requirements Document
+ ├── 📄 Conversation_Context.md          # Architectural history and logic migration
+ ├── 📂 website/                         # Local HTML/JS Mock Portal
+ │    ├── index.html                     # Visual medical EOB claim interface
+ │    ├── style.css                      # Modern glassmorphism UI styles
+ │    └── script.js                      # Dynamically generates complex data
+ ├── 📂 data/
+ │    └── claims_input.json              # Master AI-Processed Data pipeline
+ └── 📂 uipath-bot/
+      ├── project.json                   # UiPath dependencies 
+      └── Main.xaml                      # The core LLM-Loop architecture
+```
+
+## 🎥 Running the Bot
+1. Open the internal `uipath-bot/project.json` file inside UiPath Studio.
+2. Initialize `website/index.html` in an active Google Chrome window.
+3. Click **Run File** in UiPath.
+4. Watch as the bot autonomously inputs member keys, pulls the unstructured EOBs, validates them via standard HTTP requests to Google's LLM, and formats your backend JSON!
 
 ---
-
-## 🚀 Features
-* **Full UI Automation:** A UiPath Studio robot configured to mimic human web interaction, typing JSON values securely into web forms and triggering status checks.
-* **Deterministic Status Generation:** The frontend features a custom JavaScript hash algorithm that generates deterministic statuses (`Approved`, `Pending`, `Rejected`) based on the claim string, ensuring repeatable bot testing.
-* **Data Processing Pipeline:** Deserializes raw input (`claims_input.json`), processes each record in real-time on the frontend, and serializes the captured DOM output back into the dataset.
-* **Modern Interface:** Built with a premium, minimalist design using `Inter` and `Playfair Display` fonts.
-
----
-
-## 🏗️ Project Architecture
-
-The project is divided into three distinct layers:
-
-1. **/website:** The presentation layer. A custom HTML/Vanilla CSS frontend built to act as the target application for the bot. Includes JavaScript to simulate network latency and return deterministic statuses.
-2. **/data:** The data layer. Contains the `claims_input.json` database which holds 10 mock records (Member ID, Patient Name, Claim Number) to be iterated through.
-3. **/uipath-bot:** The automation layer. Contains the `Main.xaml` workflow outlining the loop, browser attachment, type-into activities, and text extraction logic.
-
----
-
-## ⚙️ How It Works
-
-1. **Ingestion:** The UiPath bot reads the local `claims_input.json` file.
-2. **Execution:** It launches a Chrome browser targeted at the AutoClaim Portal.
-3. **Iteration:** The bot loops through the JSON array, types the specific Member ID, Patient Name, and Claim Number into the portal, and clicks "Verify Claim".
-4. **Extraction:** After a simulated processing delay, the bot uses DOM scraping to extract the `Pending`, `Approved`, or `Rejected` text.
-5. **Output:** The extracted status is injected back into the bot's memory and the fully populated JSON array is written back to the file system.
-
----
-
-## 👨‍💻 Developer
-Developed as a Proof-of-Concept for automated claims processing workflows.
+*Developed by Shriram*
